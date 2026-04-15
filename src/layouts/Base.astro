@@ -39,6 +39,10 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = saved ?? (prefersDark ? 'dark' : 'light');
       document.documentElement.setAttribute('data-theme', theme);
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('theme-toggle');
+        if (btn) btn.textContent = theme === 'dark' ? '🌙' : '☀️';
+      });
     </script>
   </head>
   <body>
@@ -47,7 +51,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
       <nav>
         <a href="https://erick.com" target="_blank" rel="noopener">portfolio</a>
         <a href="/rss.xml">rss</a>
-        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">☽</button>
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
       </nav>
     </header>
 
@@ -73,13 +77,23 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
   function setTheme(theme: string) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    if (toggle) toggle.textContent = theme === 'dark' ? '☀' : '☽';
+    if (toggle) toggle.textContent = theme === 'dark' ? '🌙' : '☀️';
   }
 
   // Set initial icon
-  if (toggle) toggle.textContent = getTheme() === 'dark' ? '☀' : '☽';
+  if (toggle) toggle.textContent = getTheme() === 'dark' ? '🌙' : '☀️';
 
   toggle?.addEventListener('click', () => {
+    if (!toggle) return;
+    toggle.classList.add('spinning');
+    toggle.addEventListener('transitionend', () => {
+      toggle.classList.remove('spinning');
+      toggle.style.transition = 'none';
+      toggle.style.transform = 'rotate(0deg)';
+      requestAnimationFrame(() => {
+        toggle.style.transition = '';
+      });
+    }, { once: true });
     setTheme(getTheme() === 'dark' ? 'light' : 'dark');
   });
 </script>
