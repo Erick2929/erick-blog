@@ -5,14 +5,14 @@ interface Props {
   canonical?: string;
 }
 
-const { title, description = 'Notas y aprendizajes de un dev.', canonical } = Astro.props;
+const { title, description = 'Notes and learnings from a dev.', canonical } = Astro.props;
 const siteUrl = 'https://blog.erick.com';
-const fullTitle = title === 'erick.dev' ? 'erick.dev — notas' : `${title} — erick.dev`;
+const fullTitle = title === 'erick.dev' ? 'erick.dev — notes' : `${title} — erick.dev`;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +29,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:type" content="website" />
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="erick.dev — notas" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="erick.dev — notes" href="/rss.xml" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
@@ -37,7 +37,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
     <header class="site-header">
       <a href="/" class="brand">erick<span>.dev</span></a>
       <nav>
-        <a href="https://erick.com" target="_blank" rel="noopener">portafolio</a>
+        <a href="https://erick.com" target="_blank" rel="noopener">portfolio</a>
         <a href="/rss.xml">rss</a>
       </nav>
     </header>

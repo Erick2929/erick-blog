@@ -11,7 +11,7 @@ interface Props {
 
 const { title, date, description, tags, readingTime } = Astro.props;
 
-const formattedDate = date.toLocaleDateString('es-MX', {
+const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
@@ -22,7 +22,7 @@ const formattedDate = date.toLocaleDateString('es-MX', {
   <div class="post-header">
     <h1>{title}</h1>
     <div class="post-meta">
-      {formattedDate} &middot; {readingTime} min de lectura
+      {formattedDate} &middot; {readingTime} min read
     </div>
     {tags && tags.length > 0 && (
       <div class="tags">
@@ -35,5 +35,5 @@ const formattedDate = date.toLocaleDateString('es-MX', {
     <slot />
   </article>
 
-  <a href="/" class="back-link">← todos los posts</a>
+  <a href="/" class="back-link">← all posts</a>
 </Base>

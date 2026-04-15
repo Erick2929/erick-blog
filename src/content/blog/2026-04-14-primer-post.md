@@ -1,35 +1,35 @@
 ---
-title: "Por qué empecé este blog"
+title: "Why I started this blog"
 date: 2026-04-14
-description: "No para acumular seguidores, sino para no olvidar lo que aprendo."
+description: "Not to grow an audience, but to stop forgetting what I learn."
 tags: ["meta"]
 ---
 
-Hace tiempo que quiero tener un lugar donde apuntar cosas que aprendo en el día a día.
+I've wanted a place to jot down things I learn day-to-day for a while now.
 
-No tutoriales completos. No artículos pulidos. Solo notas — como las que escribiría en un cuaderno si aún usara cuadernos.
+Not full tutorials. Not polished articles. Just notes — like the ones I'd write in a notebook if I still used notebooks.
 
-## ¿Para qué sirve un blog así?
+## What's the point of a blog like this?
 
-Cuando aprendo algo nuevo, lo entiendo. Cuando lo explico, lo entiendo mejor. Y cuando lo escribo, lo entiendo de verdad.
+When I learn something new, I understand it. When I explain it, I understand it better. When I write it down, I actually understand it.
 
-Además, hay una diferencia entre *saber hacer algo* y *saber por qué funciona*. Escribirlo obliga a encontrar esa diferencia.
+There's also a difference between *knowing how to do something* and *knowing why it works*. Writing forces you to find that gap.
 
-## Lo que voy a publicar
+## What I'll post
 
-- Cosas que descubro en Three.js, GSAP, CSS, JavaScript
-- Configuraciones de herramientas que me costaron encontrar
-- Patrones que funcionan (y los que no)
-- Cualquier cosa que me parezca interesante
+- Things I discover in Three.js, GSAP, CSS, JavaScript
+- Tool configs that took me too long to figure out
+- Patterns that work (and ones that don't)
+- Anything I find interesting enough to remember
 
-No hay un tema fijo. El filtro es simple: si lo aprendí hoy y me pareció útil, va aquí.
+No fixed topic. The filter is simple: if I learned it today and it was useful, it goes here.
 
-## El stack de este blog
+## The stack
 
-Este blog está hecho con [Astro](https://astro.build) — un framework pensado exactamente para esto: contenido estático con Markdown, velocidad de carga instantánea y cero JavaScript por defecto.
+This blog is built with [Astro](https://astro.build) — a framework made exactly for this: static content with Markdown, instant load times, and zero JavaScript by default.
 
-Los posts viven en archivos `.md` en git. Cuando hago push, Vercel lo publica en segundos.
+Posts live as `.md` files in git. Push, and Vercel deploys in seconds.
 
 ---
 
-Eso es todo. A escribir.
+That's it. Time to write.

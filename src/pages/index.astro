@@ -12,14 +12,14 @@ function readingTime(body: string): number {
 }
 ---
 
-<Base title="erick.dev" description="Notas y aprendizajes de un dev.">
+<Base title="erick.dev" description="Notes and learnings from a dev.">
   <ul class="post-list">
     {posts.map(post => (
       <li>
         <a href={`/${post.id}/`} class="post-link">
           <div class="post-title">{post.data.title}</div>
           <div class="post-meta">
-            {post.data.date.toLocaleDateString('es-MX', { year: 'numeric', month: 'short', day: 'numeric' })}
+            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
             &middot; {readingTime(post.body ?? '')} min
           </div>
           {post.data.description && (
@@ -37,7 +37,7 @@ function readingTime(body: string): number {
 
   {posts.length === 0 && (
     <p style="color: var(--fg-muted); padding: 3rem 0;">
-      Pronto habrá posts aquí.
+      No posts yet.
     </p>
   )}
 </Base>
