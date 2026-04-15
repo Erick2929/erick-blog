@@ -6,8 +6,8 @@ interface Props {
 }
 
 const { title, description = 'Notes and learnings from a dev.', canonical } = Astro.props;
-const siteUrl = 'https://blog.erick.com';
-const fullTitle = title === 'erick.dev' ? 'erick.dev — notes' : `${title} — erick.dev`;
+const siteUrl = 'https://blog.ericksiller.com';
+const fullTitle = title === 'ericksiller.com' ? 'ericksiller.com — notes' : `${title} — ericksiller.com`;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
 ---
 
@@ -29,7 +29,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:type" content="website" />
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="erick.dev — notes" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="ericksiller.com — notes" href="/rss.xml" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -47,9 +47,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
   </head>
   <body>
     <header class="site-header">
-      <a href="/" class="brand">erick<span>.dev</span></a>
+      <a href="/" class="brand">ericksiller<span>.com</span></a>
       <nav>
-        <a href="https://erick.com" target="_blank" rel="noopener">portfolio</a>
+        <a href="https://ericksiller.com" target="_blank" rel="noopener">portfolio</a>
         <a href="/rss.xml">rss</a>
         <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
       </nav>
