@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0d0d;
+  --bg-elevated: #141414;
+  --fg: #e2e2e2;
+  --fg-muted: #666;
+  --accent: #7dd3fc;
+  --accent-dim: #38bdf820;
+  --border: #1f1f1f;
+  --font: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --max-w: 680px;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Site header ── */
+.site-header {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 3rem 0 2.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .brand {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: 0.04em;
+}
+
+.site-header .brand span {
+  color: var(--accent);
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+.site-header nav a {
+  color: var(--fg-muted);
+}
+
+.site-header nav a:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+/* ── Main content ── */
+main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+/* ── Post list ── */
+.post-list {
+  list-style: none;
+  padding: 2rem 0;
+}
+
+.post-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list li:last-child {
+  border-bottom: none;
+}
+
+.post-list a.post-link {
+  display: block;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.post-list a.post-link:hover .post-title {
+  color: var(--accent);
+}
+
+.post-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.post-meta {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+}
+
+.post-desc {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--fg-muted);
+  background: var(--bg-elevated);
+}
+
+/* ── Post article ── */
+.post-header {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-header h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 1.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+.back-link:hover {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+/* ── Prose (rendered markdown) ── */
+.prose {
+  padding: 2rem 0 4rem;
+}
+
+.prose h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  color: var(--fg);
+}
+
+.prose h3 {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 1.75rem 0 0.5rem;
+  color: var(--fg);
+}
+
+.prose p {
+  margin-bottom: 1.25rem;
+  color: var(--fg);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1.25rem 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.35rem;
+}
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose code:not(pre code) {
+  font-family: var(--font);
+  font-size: 0.85em;
+  padding: 0.15em 0.4em;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.prose pre {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--fg-muted);
+  margin: 1.5rem 0;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+.prose img {
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+/* ── Footer ── */
+.site-footer {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.5rem 0 3rem;
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const { title, description = 'Notas y aprendizajes de un dev.', canonical } = Astro.props;
+const siteUrl = 'https://blog.erick.com';
+const fullTitle = title === 'erick.dev' ? 'erick.dev — notas' : `${title} — erick.dev`;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="erick.dev — notas" href="/rss.xml" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="brand">erick<span>.dev</span></a>
+      <nav>
+        <a href="https://erick.com" target="_blank" rel="noopener">portafolio</a>
+        <a href="/rss.xml">rss</a>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <span>erick siller</span>
+      <span><a href="/rss.xml">rss feed</a></span>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
