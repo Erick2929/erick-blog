@@ -32,6 +32,14 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
     <link rel="alternate" type="application/rss+xml" title="erick.dev — notes" href="/rss.xml" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Prevent flash of wrong theme -->
+    <script is:inline>
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved ?? (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -39,6 +47,7 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
       <nav>
         <a href="https://erick.com" target="_blank" rel="noopener">portfolio</a>
         <a href="/rss.xml">rss</a>
+        <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark">☽</button>
       </nav>
     </header>
 
@@ -52,6 +61,28 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).href;
     </footer>
   </body>
 </html>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  function getTheme() {
+    return html.getAttribute('data-theme') ?? 'dark';
+  }
+
+  function setTheme(theme: string) {
+    html.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (toggle) toggle.textContent = theme === 'dark' ? '☀' : '☽';
+  }
+
+  // Set initial icon
+  if (toggle) toggle.textContent = getTheme() === 'dark' ? '☀' : '☽';
+
+  toggle?.addEventListener('click', () => {
+    setTheme(getTheme() === 'dark' ? 'light' : 'dark');
+  });
+</script>
 
 <style is:global>
   @import '../styles/global.css';
